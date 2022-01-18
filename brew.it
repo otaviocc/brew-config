@@ -14,6 +14,7 @@ brew install exiftool
 
 brew install --cask appcleaner
 brew install --cask tower
+brew install --cask firefox
 brew install --cask obsidian
 brew install --cask dash
 brew install --cask sublime-text
