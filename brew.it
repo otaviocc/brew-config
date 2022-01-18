@@ -20,5 +20,8 @@ brew install --cask sublime-text
 brew install --cask xscope
 brew install --cask kaleidoscope
 brew install --cask paw
+brew install --cask affinity-designer
+brew install --cask affinity-photo
+brew install --cask affinity-publisher
 
 brew cleanup
