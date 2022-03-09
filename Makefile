@@ -19,7 +19,9 @@ CASKS ?= \
 	firefox \
 	google-chrome \
 	kaleidoscope \
+	microblog \
 	monodraw \
+	netnewswire \
 	obsidian \
 	paw \
 	sublime-text \
