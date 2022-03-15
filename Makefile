@@ -28,19 +28,35 @@ CASKS ?= \
 	tower \
 	xscope
 
+FONTS ?= \
+	font-cascadia-code \
+	font-cascadia-mono \
+	font-jetbrains-mono \
+	font-fira-code \
+	font-fira-mono \
+	font-fira-sans \
+	font-sf-mono
+
 .PHONY: $(PACKAGES)
 .PHONY: $(CASKS)
+.PHONY: $(FONTS)
 .PHONY: UPDATE
 .PHONY: CLEANUP
-.PHONY: MAGIC
+.PHONY: REBUILD
 
-all: MAGIC
-install: UPDATE UPGRADE UPGRADE_CASKS $(PACKAGES) $(CASKS) CLEANUP
+all: magic
+install: UPDATE UPGRADE UPGRADE_CASKS $(PACKAGES) $(CASKS) $(FONTS) CLEANUP
+magic: UPDATE UPGRADE UPGRADE_CASKS CLEANUP
+rebuild: REBUILD
 
 $(PACKAGES):
 	brew install $@
 
 $(CASKS):
+	brew install --cask $@
+
+$(FONTS):
+	brew tap homebrew/cask-fonts
 	brew install --cask $@
 
 UPDATE:
@@ -55,4 +71,5 @@ UPGRADE_CASKS:
 CLEANUP:
 	brew cleanup --verbose
 
-MAGIC: UPDATE UPGRADE UPGRADE_CASKS CLEANUP
+REBUILD:
+	defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
