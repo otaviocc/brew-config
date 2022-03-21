@@ -1,3 +1,7 @@
+TAPS ?= \
+	homebrew/cask-fonts \
+	homebrew/cask-drivers
+
 PACKAGES ?= \
 	ack \
 	exiftool \
@@ -26,7 +30,8 @@ CASKS ?= \
 	paw \
 	sublime-text \
 	tower \
-	xscope
+	xscope \
+	yubico-authenticator
 
 FONTS ?= \
 	font-cascadia-code \
@@ -37,6 +42,7 @@ FONTS ?= \
 	font-fira-sans \
 	font-sf-mono
 
+.PHONY: $(TAPS)
 .PHONY: $(PACKAGES)
 .PHONY: $(CASKS)
 .PHONY: $(FONTS)
@@ -45,9 +51,12 @@ FONTS ?= \
 .PHONY: REBUILD
 
 all: magic
-install: UPDATE UPGRADE UPGRADE_CASKS $(PACKAGES) $(CASKS) $(FONTS) CLEANUP
-magic: UPDATE UPGRADE UPGRADE_CASKS CLEANUP
+install: $(TAPS) UPDATE UPGRADE UPGRADE_CASKS $(PACKAGES) $(CASKS) $(FONTS) CLEANUP
+magic: $(TAPS) UPDATE UPGRADE UPGRADE_CASKS CLEANUP
 rebuild: REBUILD
+
+$(TAPS):
+	brew tap $@
 
 $(PACKAGES):
 	brew install $@
@@ -56,7 +65,6 @@ $(CASKS):
 	brew install --cask $@
 
 $(FONTS):
-	brew tap homebrew/cask-fonts
 	brew install --cask $@
 
 UPDATE:
