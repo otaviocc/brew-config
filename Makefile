@@ -29,6 +29,7 @@ CASKS ?= \
 	obsidian \
 	paw \
 	sublime-text \
+	taskpaper \
 	tower \
 	xscope \
 	yubico-authenticator
