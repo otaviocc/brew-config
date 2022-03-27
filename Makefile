@@ -28,6 +28,7 @@ CASKS ?= \
 	netnewswire \
 	obsidian \
 	paw \
+	sf-symbols \
 	sublime-text \
 	taskpaper \
 	tower \
