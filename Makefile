@@ -61,13 +61,13 @@ $(TAPS):
 	brew tap $@
 
 $(PACKAGES):
-	brew install $@
+	brew install --no-quarantine $@
 
 $(CASKS):
-	brew install --cask $@
+	brew install --no-quarantine --cask $@
 
 $(FONTS):
-	brew install --cask $@
+	brew install --no-quarantine --cask $@
 
 UPDATE:
 	brew update --verbose
