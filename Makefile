@@ -21,6 +21,7 @@ CASKS ?= \
 	bartender \
 	dash \
 	firefox \
+	fujifilm-x-raw-studio \
 	google-chrome \
 	kaleidoscope \
 	microblog \
