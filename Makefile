@@ -24,6 +24,7 @@ CASKS ?= \
 	fujifilm-x-raw-studio \
 	google-chrome \
 	kaleidoscope \
+	marsedit \
 	microblog \
 	monodraw \
 	netnewswire \
