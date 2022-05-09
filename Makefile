@@ -12,7 +12,7 @@ PACKAGES ?= \
   	tig \
   	wget
 
-CASKS ?= \
+CASKS_HOME ?= \
 	affinity-designer \
 	affinity-photo \
 	affinity-publisher \
@@ -34,8 +34,26 @@ CASKS ?= \
 	sublime-text \
 	taskpaper \
 	tower \
+	typora \
 	xscope \
 	yubico-authenticator
+
+CASKS_WORK ?= \
+	alfred \
+	appcleaner \
+	bartender \
+	dash \
+	google-chrome \
+	kaleidoscope \
+	monodraw \
+	paw \
+	sf-symbols \
+	sublime-text \
+	taskpaper \
+	tower \
+	xscope \
+	yubico-authenticator \
+	zoom
 
 FONTS ?= \
 	font-cascadia-code \
@@ -47,15 +65,17 @@ FONTS ?= \
 	font-sf-mono
 
 .PHONY: $(TAPS)
-.PHONY: $(PACKAGES)
-.PHONY: $(CASKS)
+.PHONY: $(PACKAGES_HOME)
+.PHONY: $(CASKS_HOME)
+.PHONY: $(CASKS_WORK)
 .PHONY: $(FONTS)
 .PHONY: UPDATE
 .PHONY: CLEANUP
 .PHONY: REBUILD
 
 all: magic
-install: $(TAPS) UPDATE UPGRADE UPGRADE_CASKS $(PACKAGES) $(CASKS) $(FONTS) CLEANUP
+home: $(TAPS) UPDATE UPGRADE UPGRADE_CASKS $(PACKAGES) $(CASKS_HOME) $(FONTS) CLEANUP
+work: $(TAPS) UPDATE UPGRADE UPGRADE_CASKS $(PACKAGES) $(CASKS_WORK) $(FONTS) CLEANUP
 magic: $(TAPS) UPDATE UPGRADE UPGRADE_CASKS CLEANUP
 rebuild: REBUILD
 
