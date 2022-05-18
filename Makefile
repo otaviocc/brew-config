@@ -43,9 +43,11 @@ CASKS_WORK ?= \
 	appcleaner \
 	bartender \
 	dash \
+	fork \
 	google-chrome \
 	kaleidoscope \
 	monodraw \
+	netnewswire \
 	paw \
 	sf-symbols \
 	sublime-text \
