@@ -87,7 +87,10 @@ $(TAPS):
 $(PACKAGES):
 	brew install $@
 
-$(CASKS):
+$(CASKS_WORK):
+	brew install --no-quarantine --cask $@
+
+$(CASKS_HOME):
 	brew install --no-quarantine --cask $@
 
 $(FONTS):
